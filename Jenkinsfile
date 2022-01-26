@@ -7,7 +7,8 @@ pipeline {
 ls -la && \\
 echo "The code is okay"'''
       }
-    stage('Lint') {
+	}
+    stage('Test') {
       steps {
         sh hello-world.py
       }
