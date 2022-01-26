@@ -9,7 +9,12 @@ echo "The code is okay"'''
       }
 	}
     stage('Test') {
-	    agent any
+	    agent {
+		    docker {
+			    label 'docker'
+			    image 'python:3.5.1'
+		    }
+	    }
       steps {
         sh 'python hello-world.py'
       }
