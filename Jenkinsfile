@@ -1,5 +1,5 @@
 pipeline {
-  agent { docker { image 'python:3.10.1-alpine' } }
+  agent none
   stages {
     stage('Lint') {
       steps {
@@ -9,8 +9,13 @@ echo "The code is okay"'''
       }
 	}
     stage('Test') {
+	    agent {
+		    docker {
+			    image 'python:2-alpine'
+		    }
+	    }
       steps {
-        sh hello-world.py
+        sh 'python hello-world.py'
       }
     }
 
