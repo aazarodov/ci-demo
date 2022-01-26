@@ -11,7 +11,7 @@ echo "The code is okay"'''
     stage('Test') {
 	    agent {
 		    docker {
-			    image 'python:3'
+			    image 'python:3.5.1'
 		    }
 	    }
       steps {
